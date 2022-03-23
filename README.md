@@ -1,0 +1,2 @@
+# fluffbott
+Annoying Slack bot
