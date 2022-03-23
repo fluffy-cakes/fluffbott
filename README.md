@@ -53,8 +53,8 @@ docker run \
 - https://api.slack.com/apps
 - https://app.slack.com/block-kit-builder/
 - https://slack.dev/bolt-python/tutorial/getting-started
-    - https://api.slack.com/apps/A02UDT4MAG4/oauth?
-    - https://api.slack.com/apps/A02UDT4MAG4/event-subscriptions?
+    - https://api.slack.com/apps/{appId}/oauth?
+    - https://api.slack.com/apps/{appId}/event-subscriptions?
 
 
 ## Bot Token Scopes
