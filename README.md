@@ -1,4 +1,50 @@
+# FluffBott : An annoying questioning bot
+
+This app was born out of the desire to spark conversations in my companies Slack channels regarding Azure work. The basic idea is that it will message everyone in a channel and ask what they're working on, which is then posted on a channel for people to see in hopes that someone doing something might be of interest to someone else.
+
+Our Azure channel contains global users, but our main employee base is UK, and I only wanted to test this out on EMEA/UK. We have another channel just for EMEA, and thus the idea was to find all people that are listed in channel *Azure* which are only part of of channel *EMEA* and message them.
+
+| Azure Channel | EMEA Channel | People to Spam |
+|:------------- | ------------ | -------------- |
+| User1         | User1        | User1          |
+| User2         | User2        | User2          |
+| User3         | User3        | User3          |
+| User4         | User4        | User4          |
+| User5         | User5        | User5          |
+| User6         |              |                |
+| User7         |              |                |
+| User8         | User8        | User8          |
+| User9         |              |                |
+
+This app is called via Slacks Workflow Builder where it will ask you which channel you want to annoy (People to Spam), and which channel of people you want to include (EMEA Channel). Unfortunately my free version of Premium has expired, so I cannot show the screenshot which sets most of this up. The app has bee designed to take inputs from the calls past back to it, process the information to the appropriate channel from those inputs and POST as required. This way, the app can be called multiple times by many different channels without being stuck to one channel.
+
+![](img/README_20220324073258.png)
+
+The app can then be called by the shortcut `/asdf` in the channel, or by selecting the `+` icon.
+
+![](img/README_20220324073400.png)
+
+Each person will receive a notification from the app.
+
+![](img/README_20220324073459.png)
+
+Where people will see the update in the appropriate channel.
+
+![](img/README_20220324073552.png)
+
+...and update the message it sent to you
+
+![](img/README_20220324073641.png)
+
+...or if you told it to go away, it will update the same view with.
+
+![](img/README_20220324073619.png)
+
+
+
 ## Install Requirements
+
+I found the easiest way to test this out was to build my own Docker container and install the required software, mounting my drives where needed.
 
 #### Create Docker container for testing app
 
@@ -29,6 +75,8 @@ pip3 install slack_bolt
 
 #### Export tokens for use in app
 
+These tokens were needed in order to allow the app to connect to Slack.
+
 ```bash
 export SLACK_BOT_TOKEN="asdf"
 export SLACK_APP_TOKEN="asdf"
@@ -36,6 +84,8 @@ export SLACK_APP_TOKEN="asdf"
 
 
 #### Test Dockerfile once created image
+
+Once I was satisfied with the app and what software was required, I could then create a [Dockerfile](Dockerfile) and run it in the background. The Dockerfile will then be pushed to Azure Container Instance (or wherever) to await annoyances.
 
 ```bash
 docker run \
