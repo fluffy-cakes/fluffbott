@@ -1,6 +1,6 @@
 # FluffBott : An annoying questioning bot
 
-This app was born out of the desire to spark conversations in my companies Slack channels regarding Azure work. The basic idea is that it will message everyone in a channel and ask what they're working on, which is then posted on a channel for people to see in hopes that someone doing something might be of interest to someone else.
+This app was born out of the desire to spark conversations in my companies Slack channels regarding Azure work. The basic idea is that it will message everyone in a channel and ask what they're working on, which is then posted on a channel for people to see in hopes that someone doing something might be of interest to someone else. The app connects via web *socket mode*, which keeps the connection to the API alive in the background, negating the need to pass secure tokens to/from users.
 
 Our Azure channel contains global users, but our main employee base is UK, and I only wanted to test this out on EMEA/UK. We have another channel just for EMEA, and thus the idea was to find all people that are listed in channel *Azure* which are only part of of channel *EMEA* and message them.
 
