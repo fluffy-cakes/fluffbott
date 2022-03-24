@@ -7,7 +7,7 @@ import os
 import re
 
 
-# logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.DEBUG) # enable this if you want a good debug readout whilst developing
 app = App(token = os.environ.get("SLACK_BOT_TOKEN"))
 
 
